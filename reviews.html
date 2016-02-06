@@ -104,7 +104,7 @@
 	<div class="container"><!--Container for dropdown menu-->
 	  <h2>Post a Review</h2>
 	  
-	  <!-- REVIEW QUESTIONS -->
+	  <!-- REVIEW QUESTIONS; Based on the location the user is -->
 	  <dl id="questions">
 		<dt> 
 					<div class="dropdown">
@@ -190,13 +190,12 @@
                         Browse&hellip; <input type="file" multiple>
                     </span>
                 </span>
-                <input type="text" class="form-control" readonly>
             </div>
             <span class="help-block">
             </span>
         </di><!--ends the upload handler-->
 		
-		<button type="button" class="btn btn-primary btn-block">Submit</button>
+		<button type="button" class="btn btn-primary btn-block" onclick="submitAlert()" >Submit</button>
 		
 	</div>
 			
@@ -205,10 +204,12 @@
 	</div>
 <!--Javascript to handle reviews!-->
 	<script>
+	<!-- Creates a text box on submission of review and redirects to home page -->
 		function submitAlert() {
 			alert("Your Review has been submitted");
 			window.location = "mainfeed.html";
 		}
+		<!-- Changes the questions based on the location -->
 		function changeTextH(element){
 			var q1 =document.getElementById("q1");
 			var q2 =document.getElementById("q2");
@@ -256,6 +257,7 @@
 				q3.innerHTML ="Was there space or space made for you? ";
 				q4.innerHTML ="Are there ramps? ";
 			}
+			<!-- Schools and University-->
 			else if (element.id == 'uni'){
 				document.getElementById('dropdownMenu1').innerHTML = 'Schools/University';
 			
