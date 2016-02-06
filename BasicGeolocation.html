@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<script type="text/javascript">
+			window.onload = function() {
+			//	document.addEventListener("deviceready", init, false);
+				init();
+
+			}
+			function init() {
+				navigator.geolocation.getCurrentPosition(positionSuccess, positionError);
+			}
+			function positionSuccess(position) {
+				var latitude = position.coords.latitude;
+				var longitude = position.coords.longitude;
+
+			//	document.getElementById("lat").innerHTML = latitude;
+			//	document.getElementById("long").innerHTML = longitude;
+
+				var coordinates = latitude + ", " + longitude;
+
+				document.getElementById("g_map").setAttribute("src", "https://maps.google.co.uk?q=" + coordinates + "&z=60&output=embed");
+			}
+			function positionError(error) {
+				alert(error.message);
+			}
+		</script>
+		<TITLE>Geolocation Basic</TITLE>
+	</HEAD>
+	
+	<BODY>
+		<a href="#" id="get_location" > Get Location</a>
+		
+		<div id="map">
+			<iframe id="g_map" width="425" height="350" frameborder="0" scrolling"no" marginheight="0" src="https://maps.google.co.uk?output=embed"></iframe>
+		</div>
+		
+
+		
+<!--		Latitude: <span id="lat"></span>
+		Longitude: <span id="long"></span>
+-->
+
+	</BODY>
+</HTML>
